@@ -23,5 +23,5 @@ jobs:
         java-version: '11'##java version used
         distribution: 'temurin'
         cache: maven
-    - name: Maven Package ##it will run the build and also the test
-      run: mvn -B package --file pom.xml
+    - name: Maven Package ##it will run the build
+      run: mvn --batch-mode --update-snapshots package
