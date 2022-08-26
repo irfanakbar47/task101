@@ -6,7 +6,7 @@ ARG MAVEN_VERSION="3.8.1"
 ARG USER_HOME_DIR="/root"
 
 ARG BASE_URL="https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries"
-
+RUN apt-get install mvn
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "${USER_HOME_DIR}/.m2"
