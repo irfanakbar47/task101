@@ -24,4 +24,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Maven Package ##it will run the build
-      run: mvn --batch-mode --update-snapshots package
+      run: mvn clean verify
