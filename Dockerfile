@@ -16,8 +16,6 @@ ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 
-COPY settings-docker.xml /usr/share/maven/ref/
-
 
 RUN mkdir -p /workspace
 WORKDIR /workspace
