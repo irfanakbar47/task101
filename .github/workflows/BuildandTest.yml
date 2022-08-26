@@ -22,5 +22,5 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Maven Package
-      run: mvn clean package
+    - name: Maven Package ##it will run the build and also the test
+      run: mvn -B package --file pom.xml
