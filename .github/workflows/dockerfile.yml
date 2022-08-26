@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build --file Dockerfile --tag Spaytask:Spaytask .
+      run: docker build --file Dockerfile --tag paytask:paytask .
