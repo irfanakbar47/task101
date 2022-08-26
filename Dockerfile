@@ -1,10 +1,10 @@
 FROM adoptopenjdk/openjdk11:latest
 
-MAINTAINER Dinakar Guniguntala <dinakar.g@in.ibm.com> (@dinogun)
+
 
 ARG MAVEN_VERSION="3.8.1"
 ARG USER_HOME_DIR="/root"
-ARG SHA="b98a1905eb554d07427b2e5509ff09bd53e2f1dd7a0afa38384968b113abef02"
+
 ARG BASE_URL="https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries"
 
 RUN mkdir -p /usr/share/maven \
