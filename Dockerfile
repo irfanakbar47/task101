@@ -9,7 +9,6 @@ ARG BASE_URL="https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries"
 
 RUN mkdir -p /usr/share/maven \
     && curl -Lso  /tmp/maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
-    && echo "${SHA}  /tmp/maven.tar.gz" | sha256sum -c - \
     && tar -xzC /usr/share/maven --strip-components=1 -f /tmp/maven.tar.gz \
     && rm -v /tmp/maven.tar.gz \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
