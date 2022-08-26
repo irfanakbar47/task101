@@ -1,4 +1,8 @@
-FROM openjdk:11-jdk
+FROM openjdk:11-jdk-slim
+
+RUN apt-get update \
+  && apt-get install -y curl procps \
+  && rm -rf /var/lib/apt/lists/*
 
 ARG MAVEN_VERSION=3.8.6
 ARG USER_HOME_DIR="/root"
@@ -15,14 +19,8 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
+COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY settings-docker.xml /usr/share/maven/ref/
 
-
-RUN mkdir -p /workspace
-WORKDIR /workspace
-COPY pom.xml /workspace
-COPY src /workspace/src
-RUN mvn -B -f pom.xml clean package -DskipTests FROM openjdk11:latest
-COPY --from=build /workspace/target/*.jar app.jar
-EXPOSE 8080
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
 CMD ["mvn"]
